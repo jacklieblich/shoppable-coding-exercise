@@ -1,0 +1,7 @@
+<h1><%= @recent_highest_responses.length %> most recent highest responses</h1>
+<ol>
+<% @recent_highest_responses.each do |r| %>
+<li><%= r %></li>
+<% end %>
+</ol>
+<%= link_to "back", root_path %>
