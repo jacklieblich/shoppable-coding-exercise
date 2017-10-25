@@ -6,8 +6,8 @@ class CurrentSession < ApplicationRecord
 	end
 
 	def most_requested
-		most_requested = inputs.max_by{|k,v| v.to_i }[0]
-		inputs[most_requested].to_i > 0 ? most_requested : false
+		most_requested_arr = inputs.group_by{|k,v| v.to_i }.max
+		most_requested_arr[0] > 0 ? most_requested_arr.last.map{ |a| a[0]}.join(" & ") : false
 	end
 
 	def clear_inputs
