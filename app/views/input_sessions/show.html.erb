@@ -40,8 +40,9 @@ How many past responses would you like to see?</br>
 <script type="text/javascript">
 	lastSessionSelected = null;
 	currentSession = <%= @input_session_id %>;
+	inputs = ["a", "b", "x", "y", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
 	$(document).keydown(function(event){
-		if (lastSessionSelected !== currentSession){
+		if (lastSessionSelected !== currentSession && $.inArray(event.key, inputs) != -1){
 			$('#input').val(event.key);
 			$('#input-form').submit();
 			lastSessionSelected = currentSession;
